@@ -1,15 +1,24 @@
-const mainMenu = document.querySelector('.mainMenu');
-const closeMenu = document.querySelector('.closeMenu');
-const openMenu = document.querySelector('.openMenu');
+const hamburger = document.querySelector (".hamburger");
+const navMenu = document.querySelector (".nav-menu");
+
+hamburger.addEventListener ("click", ()=> {
+	hamburger.classList.toggle("active");
+	navMenu.classList.toggle("active");	
+})
 
 
-openMenu.addEventListener('click',show);
-closeMenu.addEventListener('click',close);
 
-function show() {
-	mainMenu.style.display = 'flex';
-	mainMenu.style.top = '0';
-}
-function close(){
-	mainMenu.style.top = '-100%';
+
+
+function myFunction(imgs) {
+  // Get the expanded image
+  var expandImg = document.getElementById("expandedImg");
+  // Get the image text
+  var imgText = document.getElementById("imgtext");
+  // Use the same src in the expanded image as the image being clicked on from the grid
+  expandImg.src = imgs.src;
+  // Use the value of the alt attribute of the clickable image as text inside the expanded image
+  imgText.innerHTML = imgs.alt;
+  // Show the container element (hidden with CSS)
+  expandImg.parentElement.style.display = "block";
 }

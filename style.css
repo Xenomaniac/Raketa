@@ -1,92 +1,210 @@
-nav {
-	color: black;
-	display: flex;
-	justify-content: space-between;
+html {
+	font-family: 'Joan', serif;
+	background-color: #b29a8e;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Titillium Web";
 }
-nav .mainMenu {
-	display: flex;
+.container1 {
+	position: absolute;
+	left: 0.0%;
+	top: 0%;
+	width: 100%;
+	height: 100%;
+	background-image: url('../img/pozadina2.jpeg');
+
+}
+header {
+	width: 100%;
+	height: 200px;
+}
+nav img {
+	width: 150px;
+	margin-left: 100px;
+	margin-top: 30px;
+}
+li{
 	list-style: none;
 }
-nav .mainMenu li a {
-	display: inline-block;
-	padding: 15px;
+.navbar {
+	min-height: 70px;
+	display: flex;
+	text-align: center;
+	padding: 0 24px;
+}
+.nav-menu {
+	position: absolute;
+	left: 65%;
+	top: 5%;
+	display: flex;
+	text-align: center;
+	gap: 60px;
+}
+a {
+	color: white;
 	text-decoration: none;
+}
+.nav-item {
 	text-transform: uppercase;
-	font-size: 1.5rem;
+	font-size: 16px;
+	line-height: 18px;
+	color: #ffffff;
+	font-weight: 400;
 }
-nav .mainMenu li a:hover{
-	background: rgb(255, 94, 0);
+ul {
+	font-weight: 400;
 }
-nav .openMenu {
-	font-size: 2rem;
-	margin: 20px;
+.hamburger {
 	display: none;
 	cursor: pointer;
 }
-nav .mainMenu .closeMenu , .icons i {
-	font-size: 2rem;
-	display: none;
-	cursor: pointer;
+.bar {
+	display: block;
+	width: 25px;
+	top: 20px;
+	height: 3px;
+	margin: 5px auto;
+	-webkit-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+	background-color: white;
 }
-.fa-facebook:hover {color: rgb(0, 110, 255);}
-.fa-twitter:hover {color: rgb(86, 154, 243);}
-.fa-instagram:hover {color: rgb(255, 0, 191);}
-.fa-github:hover {color: rgb(255, 123, 0);}
+.naslov {
+	position: absolute;
+	text-align: center;
+	left: 20%;
+}
+.naslov h1 {
+	font-size: 42px;
+	line-height: 49px;
+	color: #f7f3ea;
+}
+.pulse {
+	position: absolute;
+	top: 60%;
+	left: 42%;
+	width: 18.375%;
+	height: 7.8%;
+	border-radius: 4px;
+	background-color: #eb7d4b;
+	color: white;
+	--hover: #ef8f6e;
+}
+.pulse:hover,
+.pulse.focus {
+	-webkit-animation: pulse 1s;
+	animation: pulse 1s;
+	box-shadow: 0 0 0 2em rgb(255, 255, 255, 0);
+}
 
-nav .logo {
-	margin: 6px;
-	font-size: 25px;
-	cursor: pointer;
-}
-@media(max-width: 800px) {
-	nav .mainMenu{
-		height: 100vh;
+	@-webkit-keyframes pulse {
+		0%{
+			box-shadow: 0 0 0 0 var(--hover);
+		}
+	}
+	@keyframes pulse{
+		0% {
+			box-shadow: 0 0 0 0 var(--hover);
+		}
+	}
+@media(max-width: 768px){
+
+	.naslov {
 		position: fixed;
-		top: 0;
-		right: 0;
-		left: 0;
-		z-index: 10;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		background: #000;
-		transition: top 1s ease;
-		display: none;
+		text-align: center;
+		width: 30%;
+		top: 30%;
+		left: 35%;
 	}
-	nav .mainMenu .closeMenu {
-		display: block;
-		position: absolute;
-		top: 20px;
-		right: 20px;
+	.naslov h1 {
+		font-size: 21px;
+		line-height: 24px;
+	}
 
-	}
-	nav .openMenu{
+
+	.hamburger{
+		top: 20px;
+		width: 20%;
 		display: block;
 	}
-	nav .mainMenu li a:hover {
-		background: none;
-		color: rgb(255, 123, 0);
-		font-size: 1.6rem;
+
+	.hamburger.active .bar:nth-child(2) {
+		opacity: 0;
 	}
-	.icons i {
-		display: inline-block;
+	.hamburger.active .bar:nth-child(1) {
+		transform: translateY(8px) rotate(45deg);
 	}
+	.hamburger.active .bar:nth-child(3){
+		transform: translateY(-8px) rotate(-45deg);
+	}
+	.hamburger.active .bar:nth-child(4){
+		transform: translateY(8px) rotate(45deg);
+	}
+	.hamburger.active .bar:nth-child(5){
+		transform: translateY(-8px) rotate(-45deg);
+	}
+	.nav-menu {
+		position: fixed;
+		top: 70px;
+		gap: 0px;
+		flex-direction: column;
+		width: 150%;
+		text-align: center;
+		transition: 0.3s;
+	}
+	.nav-item {
+		margin: 16px 0px;
+	}
+	.nav-item a {
+		background-color: black;
+		color: white;
+	}
+	.nav-menu.active {
+		left: 0;
+	}
+	nav img {
+		top: -25px;
+		position: fixed;
+		margin-left: 70%;
+	}
+	.pulse {
+		position: fixed;
+		top: 70%;
+	}
+
 }
 
-
-
-.Home {
-	margin-top: -2%;
+.homebg {
 	background-image: url("../img/pozadina.jpg");
 	background-repeat: no-repeat;
 	background-size: unset;
 	height: 400px;
+	filter: blur(6px);
+}
+.Home {
+	margin-top: -22%;
+}
+.Home h2 {
+	position: relative;
+	left: 34%;
+	width: 500px;
+	text-transform: uppercase;
+	text-decoration: underline;
+	font-size: 3rem;
+	color: white;
 }
 .Home h1{
+	text-transform: uppercase;
+	text-decoration: overline;
+	font-size: 3rem;
 	position: relative;
 	top: 20%;
 	color: white;
 	text-align: center;
+}
+.About {
+	position: relative;
+	margin-top: 5%;
 }
 .Home img {
 	position: relative;
@@ -96,13 +214,13 @@ nav .logo {
 }
 .About h1 {
 	position: relative;
-	top: -300px;
+	top: -200px;
 	text-align: center;
 
 }
 .About p {
 	position: relative;
-	top: -300px;
+	top: -200px;
 	text-align: left;
 	width: 80%;
 	left: 100px;
@@ -110,10 +228,92 @@ nav .logo {
 .About img {
 	position: relative;
 	left: 70%;
-	top: 50px;
+	top: 170px;
 	width: 400px;
 	height: 300px;
 }
+p.paragraph {
+	position: relative;
+	left: 45%;
+	font-size: 1.5rem;
+	margin-top: -15%;
+	width: 650px;
+}
+p.paragraph1 {
+	position: relative;
+	margin-top: 6%;
+	font-size: 1.5rem;
+	width: 700px;
+	text-align: left;
+}
+.About h1 {
+	font-size: 3rem;
+}
+
+/* Galerija */
+
+.column {
+	float: left;
+	width: 15%;
+	padding: 30px;
+}
+.column img {
+	width: 300px;
+	height: 300px;
+}
+.column img {
+	opacity: 0.8;
+	cursor: pointer;
+}
+
+.column img:hover {
+	opacity: 1;
+}
+
+/* Clear floats after the columns */
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* The expanding image container (positioning is needed to position the close button and the text) */
+.container {
+	position: relative;
+	text-align: center;
+	width: 70%;
+	margin-left: 15%;
+	display: none;
+}
+
+/* Expanding image text */
+#imgtext {
+	position: absolute;
+	bottom: 15px;
+	left: 15px;
+	color: white;
+	font-size: 20px;
+}
+
+/* Closable button inside the image */
+.closebtn {
+	position: absolute;
+	top: 10px;
+	right: 15px;
+	color: black;
+	font-size: 35px;
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
