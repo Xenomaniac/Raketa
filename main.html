@@ -9,18 +9,20 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Joan&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css" />
+
 	<title>Početna</title>
 </head>
 <body>
 	<div class="container1">
 		<header>	
 			<nav>
-				<img id="logo" src="../img/logo.png">
+				<a href="../code/main.html"><img id="logo" src="../img/logo.png"></a>
 				<ul class="nav-menu">
-					<li class="nav-item"><a href="#">Početna</a></li>
-					<li class="nav-item"><a href="#">O nama</a></li>
-					<li class="nav-item"><a href="#">Galerija</a></li>
-					<li class="nav-item"><a href="#">Mapa</a></li>
+					<li class="nav-item"><a href="#Početna">Početna</a></li>
+					<li class="nav-item"><a href="#O nama">O nama</a></li>
+					<li class="nav-item"><a href="#Galerija">Galerija</a></li>
+					<li class="nav-item"><a href="#Mapa">Mapa</a></li>
 				</ul>
 				<div class="hamburger">
 					<span class="bar"></span>
@@ -44,7 +46,7 @@
 
 
 		<div class="homebg"></div>
-		<div class="Home">
+		<div class="Home" id="Početna">
 			<h1>Dobrodosli u</h1>
 			<h2>caffe bar raketa</h2>
 		</div>
@@ -59,10 +61,15 @@
 		<!----------------O nama--------------------->
 
 
-		<div class="About">
+		<div class="About" id="O nama">
 			<img src="../img/caffe.jpg">
-			<h1>O nama</h1>
-			<p class="paragraph1">Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
+			<h1>
+			  <span
+			     class="txt-rotate"
+			     data-period="2000"
+			     data-rotate='[ "O nama", "About us", "À propos de nous", "О нас", "Über uns" ]'></span>
+			</h1>
+			<p class="paragraph1">Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum </p>
 		</div>
 
 
@@ -72,7 +79,7 @@
 		<!----------------Galerija--------------------->
 
 
-		<div class="Gallery">
+		<div class="Gallery" id="Galerija">
 			<div class="row">
 			  <div class="column">
 			    <img src="../img/1.jpg" alt="prva" onclick="myFunction(this);">
@@ -91,15 +98,9 @@
 			  </div>
 			</div>
 
-			<!-- The expanding image container -->
 			<div class="container">
-			  <!-- Close the image -->
 			  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-
-			  <!-- Expanded image -->
 			  <img id="expandedImg" style="width:100%">
-
-			  <!-- Image text -->
 			  <div id="imgtext"></div>
 			</div>
 		</div>
@@ -110,7 +111,7 @@
 
 
 		<!----------------Mapa--------------------->
-		<div class="maps">
+		<div class="maps" id="Mapa">
 
 
 

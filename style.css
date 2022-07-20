@@ -1,4 +1,5 @@
 html {
+	scroll-behavior: smooth;
 	font-family: 'Joan', serif;
 	background-color: #b29a8e;
 	margin: 0;
@@ -42,8 +43,16 @@ li{
 	gap: 60px;
 }
 a {
-	color: white;
 	text-decoration: none;
+	box-shadow: inset 0 0 0 0 #54b3d6;
+	color: #54b3d6;
+	margin: 0 -.25rem;
+	padding: 0 .25rem;
+	transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+a:hover {
+	box-shadow: inset 100px 0 0 0 #54b3d6;
+	color: white;
 }
 .nav-item {
 	text-transform: uppercase;
@@ -55,6 +64,7 @@ a {
 ul {
 	font-weight: 400;
 }
+
 .hamburger {
 	display: none;
 	cursor: pointer;
@@ -107,71 +117,89 @@ ul {
 			box-shadow: 0 0 0 0 var(--hover);
 		}
 	}
-@media(max-width: 768px){
+	/*----------------------VELIKI EKRAN---------------------------------*/
 
-	.naslov {
-		position: fixed;
-		text-align: center;
-		width: 30%;
-		top: 30%;
-		left: 35%;
+
+@media (min-width: 1700px){
+	.homebg {
+		position: relative;
+		left: 10%;
+		width: 80%;
 	}
-	.naslov h1 {
-		font-size: 21px;
-		line-height: 24px;
-	}
-
-
-	.hamburger{
-		top: 20px;
+	.Home h1 {
+		position: relative;
+		font-family: 'Roboto Mono', monospace;
+		position: relative;
+		margin-top: 6%;
 		width: 20%;
-		display: block;
+		margin-left: 40%;
+	}
+	.Home h1 {
+		background-image: linear-gradient(
+		to right,
+		#54b3d6,
+		#54b3d6 50%,
+		#000 50%
+		);
+		background-size: 200% 100%;
+		background-position: -100%;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		transition: all 0.3s ease-in-out;
+	}
+	.Home h1:before{
+	  content: '';
+	  background: #54b3d6;
+	  display: block;
+	  position: absolute;
+	  bottom: -3px;
+	  left: 0;
+	  width: 0;
+	  height: 3px;
+	  transition: all 0.3s ease-in-out;
+	}
+	.Home h1:hover {
+	 background-position: 0;
+	}
+	.Home h1:hover::before{
+	  width: 100%;
 	}
 
-	.hamburger.active .bar:nth-child(2) {
-		opacity: 0;
-	}
-	.hamburger.active .bar:nth-child(1) {
-		transform: translateY(8px) rotate(45deg);
-	}
-	.hamburger.active .bar:nth-child(3){
-		transform: translateY(-8px) rotate(-45deg);
-	}
-	.hamburger.active .bar:nth-child(4){
-		transform: translateY(8px) rotate(45deg);
-	}
-	.hamburger.active .bar:nth-child(5){
-		transform: translateY(-8px) rotate(-45deg);
-	}
-	.nav-menu {
-		position: fixed;
-		top: 70px;
-		gap: 0px;
-		flex-direction: column;
-		width: 150%;
+	.Home h2 {
+		font-family: 'Roboto Mono', monospace;
 		text-align: center;
-		transition: 0.3s;
+		position: relative;
+		margin-left: 2%;
 	}
-	.nav-item {
-		margin: 16px 0px;
+	.Home h2::before {
+		content: '';
+	    position: absolute;
+	    width: 100%;
+	    height: 4px;
+	    border-radius: 4px;
+	    background-color: #000;
+	    bottom: 0;
+	    left: 0;
+	    transform-origin: right;
+	    transform: scaleX(0);
+	    transition: transform .3s ease-in-out;
 	}
-	.nav-item a {
-		background-color: black;
-		color: white;
+	.Home h2:hover::before {
+		transform-origin: left;
+		transform: scaleX(1);
 	}
-	.nav-menu.active {
-		left: 0;
+	p.paragraph1 {
+		margin-left: 6%;
 	}
-	nav img {
-		top: -25px;
-		position: fixed;
-		margin-left: 70%;
+	.About img {
+		margin-left: -5%;
 	}
-	.pulse {
-		position: fixed;
-		top: 70%;
+	.Gallery {
+		margin-left: 5%;
 	}
-
+	.container {
+		left: -2%;
+	}
 }
 
 .homebg {
@@ -189,18 +217,19 @@ ul {
 	left: 34%;
 	width: 500px;
 	text-transform: uppercase;
-	text-decoration: underline;
 	font-size: 3rem;
 	color: white;
 }
 .Home h1{
-	text-transform: uppercase;
-	text-decoration: overline;
-	font-size: 3rem;
 	position: relative;
-	top: 20%;
+	text-transform: uppercase;
+	font-size: 3rem;
 	color: white;
 	text-align: center;
+}
+.Home h2 {
+	position: relative;
+	left: 35%;
 }
 .About {
 	position: relative;
@@ -303,6 +332,117 @@ p.paragraph1 {
 	color: black;
 	font-size: 35px;
 	cursor: pointer;
+}
+
+/*----------------------MALI EKRAN---------------------------------*/
+
+
+@media(max-width: 768px){
+	html {
+		max-width: 768px;
+	}
+	.naslov {
+		position: fixed;
+		text-align: center;
+		width: 30%;
+		top: 30%;
+		left: 35%;
+	}
+	.naslov h1 {
+		font-size: 21px;
+		line-height: 24px;
+	}
+
+
+	.hamburger{
+		top: 20px;
+		width: 20%;
+		display: block;
+	}
+
+	.hamburger.active .bar:nth-child(2) {
+		opacity: 0;
+	}
+	.hamburger.active .bar:nth-child(1) {
+		transform: translateY(20px) rotate(45deg);
+	}
+	.hamburger.active .bar:nth-child(3){
+		transform: translateY(-20px) rotate(-45deg);
+	}
+	.hamburger.active .bar:nth-child(4){
+		transform: translateY(20px) rotate(45deg);
+	}
+	.hamburger.active .bar:nth-child(5){
+		transform: translateY(-20px) rotate(-45deg);
+	}
+	.nav-menu {
+		z-index: 1000;
+		position: fixed;
+		top: 70px;
+		gap: 0px;
+		flex-direction: column;
+		width: 100%;
+		text-align: center;
+		transition: 0.3s;
+	}
+	.nav-item {
+		margin: 20px 0px;
+	}
+	.nav-item a {
+		border-radius: 2px;
+		background-color: black;
+		color: white;
+	}
+	.nav-menu.active {
+		max-width: 750px;
+		left: 0;
+	}
+	ul.nav-menu {
+		max-width: 768px;
+
+	}
+	nav img {
+		top: -25px;
+		position: fixed;
+		width: 15%;
+		margin-left: 60%;
+	}
+
+	.Home h1 {
+		position: relative;
+		margin-top: -35%;
+	}
+	.Home h2 {
+		position: relative;
+		left: 18%;
+	}
+	.About img {
+		position: relative;
+		left: 5%;
+	}
+	.About h1 {
+		position: relative;
+		left: 30%;
+	}
+	.About p {
+		position: relative;
+		left: 70%;
+		width: 30%;
+	}
+	.column img {
+		width: 150px;
+		height: 150px;
+	}
+	.maps iframe {
+		position: relative;
+		width: 300px;
+		height: 250px;
+	}
+	.maps p {
+		position: relative;
+		width: 200px;
+		left: 60%;
+	}
 }
 
 
